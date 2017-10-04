@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Movies-Rx-MVP-DI</string>
+    <string name="failed_to_load_your_movies">Failed To Load Your Movies</string>
+    <string name="no_data_to_show">No Data to Show</string>
+</resources>
