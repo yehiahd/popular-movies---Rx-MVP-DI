@@ -1,6 +1,5 @@
 package com.appizona.yehia.movies_rx_mvp_di.adapter;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,14 +27,12 @@ import butterknife.ButterKnife;
 
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesHolder> {
 
-    private Context mContext;
     private List<Movie> list;
     private Picasso picasso;
     private OnMovieClickListener onMovieClickListener;
 
     @Inject
-    public MoviesAdapter(Context context, List<Movie> list, Picasso picasso) {
-        this.mContext = context;
+    public MoviesAdapter(List<Movie> list, Picasso picasso) {
         this.list = list;
         this.picasso = picasso;
     }

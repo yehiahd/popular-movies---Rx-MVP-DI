@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.appizona.yehia.movies_rx_mvp_di.adapter.MoviesAdapter;
 import com.appizona.yehia.movies_rx_mvp_di.di.ContextModule;
+import com.appizona.yehia.movies_rx_mvp_di.di.qualifier.ActivityContext;
 import com.appizona.yehia.movies_rx_mvp_di.ui.home.HomePresenter;
 import com.squareup.picasso.Picasso;
 
@@ -23,8 +24,8 @@ import dagger.Provides;
 public class HomeActivityModule {
 
     @Provides
-    MoviesAdapter moviesAdapter(Context context, Picasso picasso) {
-        return new MoviesAdapter(context, new ArrayList<>(), picasso);
+    MoviesAdapter moviesAdapter(Picasso picasso) {
+        return new MoviesAdapter(new ArrayList<>(), picasso);
     }
 
     @Provides
@@ -33,7 +34,7 @@ public class HomeActivityModule {
     }
 
     @Provides
-    RecyclerView.LayoutManager manager(Context context) {
+    RecyclerView.LayoutManager manager(@ActivityContext Context context) {
         return new LinearLayoutManager(context);
     }
 

@@ -1,4 +1,4 @@
-package com.appizona.yehia.movies_rx_mvp_di.di;
+package com.appizona.yehia.movies_rx_mvp_di.di.qualifier;
 
 import javax.inject.Qualifier;
 

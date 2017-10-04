@@ -2,6 +2,8 @@ package com.appizona.yehia.movies_rx_mvp_di.di;
 
 import android.content.Context;
 
+import com.appizona.yehia.movies_rx_mvp_di.di.qualifier.ActivityContext;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -19,6 +21,7 @@ public class ContextModule {
     }
 
     @Provides
+    @ActivityContext
     Context context() {
         return context;
     }
