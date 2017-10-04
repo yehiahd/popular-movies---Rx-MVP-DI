@@ -24,6 +24,7 @@ public class MovieDetailPresenter extends BasePresenter<MovieDetailView> {
 
     @Override
     public void detachView() {
+        compositeDisposable.clear();
         super.detachView();
     }
 
