@@ -49,6 +49,7 @@ public class HomePresenter extends BasePresenter<HomeView> {
                     .flatMap(response -> Observable.fromIterable(response.getMovies()))
                     .map(movie -> {
                         movie.setPosterPath(Constants.Api.BASE_IMAGE_URL + movie.getPosterPath());
+                        movie.setBackdropPath(Constants.Api.BASE_IMAGE_URL + movie.getBackdropPath());
                         movie.setShortOverView(movie.getOverview().substring(FIRST_INDEX_SUB, LAST_INDEX_SUB)
                                 .concat(TO_BE_CONTINUED));
                         return movie;

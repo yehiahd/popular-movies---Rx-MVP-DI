@@ -14,4 +14,8 @@ public interface Constants {
             String API_KEY = "api_key";
         }
     }
+
+    interface Extras {
+        String MOVIE = "movie";
+    }
 }

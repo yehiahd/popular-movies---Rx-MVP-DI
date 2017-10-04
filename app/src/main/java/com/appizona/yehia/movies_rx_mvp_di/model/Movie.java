@@ -1,12 +1,15 @@
 package com.appizona.yehia.movies_rx_mvp_di.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by yehia on 04/10/17.
  */
 
-public class Movie {
+public class Movie implements Parcelable {
 
     @SerializedName("vote_average")
     private String voteAverage;
@@ -161,4 +164,60 @@ public class Movie {
     public void setShortOverView(String shortOverView) {
         this.shortOverView = shortOverView;
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.voteAverage);
+        dest.writeString(this.backdropPath);
+        dest.writeString(this.adult);
+        dest.writeString(this.id);
+        dest.writeString(this.title);
+        dest.writeString(this.overview);
+        dest.writeString(this.originalLanguage);
+        dest.writeString(this.releaseDate);
+        dest.writeString(this.originalTitle);
+        dest.writeString(this.voteCount);
+        dest.writeString(this.posterPath);
+        dest.writeString(this.video);
+        dest.writeString(this.popularity);
+        dest.writeString(this.shortOverView);
+    }
+
+    public Movie() {
+    }
+
+    protected Movie(Parcel in) {
+        this.voteAverage = in.readString();
+        this.backdropPath = in.readString();
+        this.adult = in.readString();
+        this.id = in.readString();
+        this.title = in.readString();
+        this.overview = in.readString();
+        this.originalLanguage = in.readString();
+        this.releaseDate = in.readString();
+        this.originalTitle = in.readString();
+        this.voteCount = in.readString();
+        this.posterPath = in.readString();
+        this.video = in.readString();
+        this.popularity = in.readString();
+        this.shortOverView = in.readString();
+    }
+
+    public static final Parcelable.Creator<Movie> CREATOR = new Parcelable.Creator<Movie>() {
+        @Override
+        public Movie createFromParcel(Parcel source) {
+            return new Movie(source);
+        }
+
+        @Override
+        public Movie[] newArray(int size) {
+            return new Movie[size];
+        }
+    };
 }

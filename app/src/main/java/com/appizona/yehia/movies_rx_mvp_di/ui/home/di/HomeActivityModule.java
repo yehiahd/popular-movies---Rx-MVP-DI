@@ -1,11 +1,14 @@
-package com.appizona.yehia.movies_rx_mvp_di.di;
+package com.appizona.yehia.movies_rx_mvp_di.ui.home.di;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.appizona.yehia.movies_rx_mvp_di.adapter.MoviesAdapter;
+import com.appizona.yehia.movies_rx_mvp_di.di.ContextModule;
 import com.appizona.yehia.movies_rx_mvp_di.ui.home.HomePresenter;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -20,8 +23,8 @@ import dagger.Provides;
 public class HomeActivityModule {
 
     @Provides
-    MoviesAdapter moviesAdapter(Context context) {
-        return new MoviesAdapter(context, new ArrayList<>());
+    MoviesAdapter moviesAdapter(Context context, Picasso picasso) {
+        return new MoviesAdapter(context, new ArrayList<>(), picasso);
     }
 
     @Provides
@@ -32,5 +35,10 @@ public class HomeActivityModule {
     @Provides
     RecyclerView.LayoutManager manager(Context context) {
         return new LinearLayoutManager(context);
+    }
+
+    @Provides
+    Intent intent() {
+        return new Intent();
     }
 }
