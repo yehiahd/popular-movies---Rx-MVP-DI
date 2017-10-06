@@ -56,10 +56,10 @@ dependencies {
     provided 'javax.annotation:jsr250-api:1.0'
     compile 'javax.inject:javax.inject:1'
 
-    //Room
-    compile "android.arch.persistence.room:runtime:$roomVersion"
-    annotationProcessor "android.arch.persistence.room:compiler:$roomVersion"
-    compile "android.arch.persistence.room:rxjava2:$roomVersion"
+//    //Room
+//    compile "android.arch.persistence.room:runtime:$roomVersion"
+//    annotationProcessor "android.arch.persistence.room:compiler:$roomVersion"
+//    compile "android.arch.persistence.room:rxjava2:$roomVersion"
 
     //Testing
     testCompile 'junit:junit:4.12'
