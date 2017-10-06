@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -113,5 +115,32 @@ public class HomeActivity extends BaseActivity implements HomeView, OnMovieClick
         intent.setClass(this, MovieDetailActivity.class);
         intent.putExtra(Constants.Extras.MOVIE, movie);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.popular:
+                presenter.loadPopularMovies();
+                return true;
+
+            case R.id.top_rated:
+                presenter.loadTopRatedMovies();
+                return true;
+
+            case R.id.favorite:
+
+                return true;
+
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

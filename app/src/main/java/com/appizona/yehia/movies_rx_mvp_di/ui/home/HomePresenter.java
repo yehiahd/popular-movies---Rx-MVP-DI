@@ -33,8 +33,17 @@ public class HomePresenter extends BasePresenter<HomeView> {
     }
 
     public void loadPopularMovies() {
+        loadMovies(Constants.Api.POPULAR);
+    }
+
+    public void loadTopRatedMovies() {
+        loadMovies(Constants.Api.TOP_RATED);
+    }
+
+
+    private void loadMovies(String MoviesType) {
         if (isViewAttached())
-            MoviesService.getPopularMovies()
+            MoviesService.getMovies(MoviesType)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doOnSubscribe(disposable -> {
