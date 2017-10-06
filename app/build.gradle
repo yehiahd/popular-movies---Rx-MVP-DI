@@ -4,6 +4,7 @@ apply plugin: 'me.tatarka.retrolambda'
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
+    dataBinding.enabled = true
     defaultConfig {
         applicationId "com.appizona.yehia.movies_rx_mvp_di"
         minSdkVersion 15
