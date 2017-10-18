@@ -3,11 +3,10 @@ package com.appizona.yehia.movies_rx_mvp_di.ui.home;
 import com.appizona.yehia.movies_rx_mvp_di.data.remote.MoviesService;
 import com.appizona.yehia.movies_rx_mvp_di.ui.base.BasePresenter;
 import com.appizona.yehia.movies_rx_mvp_di.util.Constants;
+import com.appizona.yehia.movies_rx_mvp_di.util.RxUtils;
 
 import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by yehia on 04/10/17.
@@ -44,8 +43,7 @@ public class HomePresenter extends BasePresenter<HomeView> {
     private void loadMovies(String MoviesType) {
         if (isViewAttached())
             MoviesService.getMovies(MoviesType)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
+                    .compose(RxUtils.applyNetworkSchedulers())
                     .doOnSubscribe(disposable -> {
                         getView().setLoading();
                         compositeDisposable.add(disposable);
